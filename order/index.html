@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Start an order | Metro Sports</title>
+<meta name="description" content="Build a custom apparel order request with a live sample estimate.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.order-wrap{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}.order-wrap>*{min-width:0}
+.stepper{display:flex;gap:6px;list-style:none;padding:0;margin:0 0 20px;flex-wrap:wrap}
+.stepper li{flex:1;min-width:80px}
+.stepper button{width:100%;border:0;background:var(--paper);border-radius:10px;padding:9px 6px;font:600 .82rem var(--font);color:var(--muted);cursor:pointer;text-align:left}
+.stepper button[aria-current=step]{background:var(--ink);color:#fff}
+.stepper button.done{background:#e3f3fa;color:var(--blue)}
+.step{border:1px solid var(--line);border-radius:var(--radius);padding:24px;background:#fff}
+.step[hidden]{display:none}
+.step legend{font-family:"Barlow Condensed",var(--font);font-size:1.6rem;font-weight:800;text-transform:uppercase;padding:0}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:12px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0}
+.opt label{display:block;border:2px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;height:100%;font-weight:700}
+.opt label small{display:block;font-weight:500;color:var(--muted);margin-top:4px}
+.opt input:checked+label{border-color:var(--blue);background:#eef8fc}
+.opt input:focus-visible+label{outline:3px solid var(--blue-bright);outline-offset:2px}
+.field{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.field label,.lbl{font-weight:700;font-size:.95rem}
+.field input,.field select,.field textarea{padding:11px 12px;border:1px solid #cfd5de;border-radius:10px;font:inherit;background:#fff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.sizes-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.sizes-grid label{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:.9rem;text-align:center}
+.sizes-grid input{padding:10px 6px;border:1px solid #cfd5de;border-radius:10px;font:inherit;text-align:center;width:100%}
+.loc{display:grid;grid-template-columns:1fr 150px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+.loc select{padding:8px;border:1px solid #cfd5de;border-radius:8px;font:inherit}
+.loc select:disabled{opacity:.4}
+.nav-btns{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.previews{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.previews figure{margin:0;width:120px;font-size:.78rem;color:var(--muted);word-break:break-all}
+.previews img,.previews .file{width:120px;height:120px;object-fit:contain;border:1px solid var(--line);border-radius:10px;background:var(--paper);display:grid;place-items:center;font-weight:800;color:var(--muted)}
+.summary{position:sticky;top:96px;border:1px solid var(--line);border-radius:var(--radius);padding:20px;background:#fff;box-shadow:var(--shadow)}
+.summary h2{font-size:1.3rem}
+.summary dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0 0 12px;font-size:.92rem}
+.summary dt{color:var(--muted)} .summary dd{margin:0;text-align:right;font-weight:600}
+.price-lines{border-top:1px solid var(--line);padding-top:10px;font-size:.92rem}
+.price-lines div{display:flex;justify-content:space-between;gap:8px;padding:3px 0}
+.total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px solid var(--ink);margin-top:8px;padding-top:10px;font-size:1.3rem;font-weight:800}
+.err{color:#b51d31;font-weight:600;margin-top:10px}
+.review-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+#print-summary{display:none}
+@media (max-width:960px){.order-wrap{grid-template-columns:1fr}.summary{position:static}}
+@media (max-width:560px){.sizes-grid{grid-template-columns:repeat(5,1fr);gap:6px}.sizes-grid input{padding:8px 2px}.grid2{grid-template-columns:1fr}.loc{grid-template-columns:1fr 120px}.stepper li{min-width:0;flex:1 1 30%}}
+@media print{.order-wrap>form,.page-head,.stepper{display:none!important}.order-wrap{display:block}.summary{position:static;box-shadow:none;border:0}#print-summary{display:block;white-space:pre-wrap;font:14px/1.5 monospace}.summary .review-actions{display:none}}
+</style></head>
+<body data-root="../">
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-banner" role="note">Design preview only — not the official Metro Sports website.</div>
+<div class="utility"><div class="wrap"><span class="since">Screen Printing · Embroidery · Heat Applied · Digital Graphics — since 1986</span><span><span class="addr">1000 East Industrial Park Drive, Manchester, NH 03109 · </span><a href="tel:+16036233644">(603) 623-3644</a> · <a href="mailto:info@metrosportsnh.com">info@metrosportsnh.com</a></span></div></div>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Metro Sports home"><svg viewBox="0 0 64 42" aria-hidden="true" focusable="false"><path d="M8 4.5 31 1.2c3-.4 4.6 1.4 3.8 4.2L29.6 22c-.6 2-2.2 3.2-4.3 3.4L6.2 27.6c-2.8.3-4.4-1.6-3.6-4.3L4.6 7.8C5.2 6 6.3 4.8 8 4.5Z" fill="#14171c"/><path d="M10 8.2 29 5.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><path d="M3 35c9-6 19-7 30-3.5S52 35 61 29" stroke="#0083b8" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M38 20c6-2.5 12-2.4 17 .5" stroke="#d7263d" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><span class="wm"><b>Metro <span>Sports</span></b><small>Screen Printing · Promotions · Team Specialty</small></span></a>
+<nav class="nav" id="site-nav" aria-label="Main"><button class="menu-toggle close" aria-label="Close menu" style="display:none">✕</button><ul><li><a href="../index.html">Home</a></li><li><button class="drop" aria-expanded="false">Our Work</button><ul class="sub"><li><a href="../screened.html">Screen Printing</a></li><li><a href="../embroidery.html">Embroidery</a></li><li><a href="../heat-applied.html">Heat Applied</a></li><li><a href="../direct-to-garment.html">Direct to Garment</a></li></ul></li><li><button class="drop" aria-expanded="false">Products</button><ul class="sub"><li><a href="../apparel.html">Apparel</a></li><li><a href="../accessories.html">Accessories</a></li><li><a href="../brands.html">Brands</a></li></ul></li><li><a href="../team-store.html">Team Store</a></li><li><a href="../order/" aria-current=page>Order</a></li><li><a href="../contact.html">Contact</a></li><li class="mobile-only"><a href="tel:+16036233644">Call (603) 623-3644</a></li></ul></nav>
+<div class="header-cta"><a class="btn btn-ghost btn-sm" href="tel:+16036233644">Call (603) 623-3644</a><a class="btn btn-primary btn-sm" href="../order/">Start an order</a></div>
+<button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><div class="crumbs"><a href="../index.html">Home</a> / Order</div><h1>Start an order</h1><p>Build your order step by step. You'll get a live estimate, then send the request to the shop — nothing is charged and nothing is sent until you choose to.</p></div></section>
+<section class="block"><div class="wrap order-wrap">
+<form id="order" novalidate>
+<ol class="stepper" aria-label="Order steps"></ol>
+<fieldset class="step" data-title="Service"><legend>1 · Choose a service</legend><div class="opts" role="radiogroup"><div class="opt"><input type="radio" name="service" id="s0" value="Screen Printing" checked><label for="s0">Screen Printing<small>Bold ink prints, priced by number of colors</small></label></div><div class="opt"><input type="radio" name="service" id="s1" value="Embroidery"><label for="s1">Embroidery<small>Stitched logos on hats, polos, jackets</small></label></div><div class="opt"><input type="radio" name="service" id="s2" value="Heat Applied"><label for="s2">Heat Applied<small>Names, numbers and graphics</small></label></div><div class="opt"><input type="radio" name="service" id="s3" value="Direct to Garment"><label for="s3">Direct to Garment<small>Full-color digital prints</small></label></div></div>
+<p style="margin-top:14px"><a href="../screened.html">See examples of each method</a></p></fieldset>
+
+<fieldset class="step" data-title="Garment" hidden><legend>2 · Pick a garment</legend>
+<div class="grid2"><div class="field"><label for="g-cat">Garment type</label><select id="g-cat" name="category"></select></div>
+<div class="field"><label for="g-brand">Brand</label><select id="g-brand" name="brand"><option value="">No preference — recommend one</option><option>Alstyle</option><option>Alternative</option><option>American Apparel</option><option>Ash City</option><option>Augusta Sportswear</option><option>Bella</option><option>Blue Generation</option><option>Boxercraft</option><option>Champion Sports</option><option>Champro Sports</option><option>Charles River Apparel</option><option>Cobblestones Activewear</option><option>Dodger</option><option>Gildan Activewear</option><option>Holloway</option><option>NES Clothing</option><option>Official Issue</option><option>Pennant Sportswear</option><option>Royal Apparel</option><option>SanMar</option><option>Soffe</option><option>Teamwork Athletic Apparel</option><option>Tonix</option><option>Tri-Mountain</option></select></div></div>
+<div class="field"><label for="g-style">Style / item number (optional)</label><input id="g-style" name="style" placeholder="From our catalogs, e.g. a style number"></div>
+<p style="font-size:.9rem;color:var(--muted)">Browse <a href="../apparel.html" target="_blank">apparel</a> and <a href="../accessories.html" target="_blank">accessories</a> catalog sheets.</p>
+<div class="field"><label for="g-color">Garment color</label><select id="g-color" name="color"></select></div></fieldset>
+
+<fieldset class="step" data-title="Sizes" hidden><legend>3 · Size breakdown</legend><p>Enter how many of each size. <span id="qty-total" style="font-weight:800"></span></p>
+<div class="sizes-grid" id="sizes"></div><p class="err" id="size-err" hidden>Add at least one piece to continue.</p></fieldset>
+
+<fieldset class="step" data-title="Decoration" hidden><legend>4 · Decoration</legend><p id="loc-help">Choose where it goes and how many ink colors in each spot.</p><div id="locs"></div><p class="err" id="loc-err" hidden>Pick at least one location.</p></fieldset>
+
+<fieldset class="step" data-title="Artwork" hidden><legend>5 · Artwork</legend>
+<div class="field"><label for="art">Upload artwork (optional)</label><input type="file" id="art" accept="image/*,.pdf,.ai,.eps,.svg,.psd" multiple>
+<small style="color:var(--muted)">Preview only — files stay on your device and are not uploaded. Attach them to the email when you send your request.</small></div>
+<div class="previews" id="previews"></div>
+<div class="field"><label for="desc">…or describe your design</label><textarea id="desc" name="design" rows="4" placeholder="Text, logo, colors, placement ideas"></textarea></div></fieldset>
+
+<fieldset class="step" data-title="Details" hidden><legend>6 · Date &amp; contact</legend>
+<div class="grid2"><div class="field"><label for="due">Date needed by</label><input type="date" id="due" name="due"></div>
+<div class="field"><label for="org">Team / organization (optional)</label><input id="org" name="org"></div>
+<div class="field"><label for="cname">Your name *</label><input id="cname" name="name" autocomplete="name" required></div>
+<div class="field"><label for="cemail">Email *</label><input id="cemail" type="email" name="email" autocomplete="email" required></div>
+<div class="field"><label for="cphone">Phone</label><input id="cphone" type="tel" name="phone" autocomplete="tel"></div></div>
+<div class="field"><label for="notes">Notes</label><textarea id="notes" name="notes" rows="3"></textarea></div>
+<p class="err" id="det-err" hidden>Please add your name and a valid email.</p></fieldset>
+
+<fieldset class="step" data-title="Review" hidden><legend>7 · Review &amp; send</legend>
+<p>Check the summary, then send it to the shop. They'll confirm garments, artwork and final price before anything is produced.</p>
+<div class="review-actions">
+<a class="btn btn-primary" id="send" href="#">Submit order request (email)</a>
+<button type="button" class="btn btn-ghost" id="print">Print summary</button>
+<button type="button" class="btn btn-blue" id="pay-dep">Pay deposit</button>
+<button type="button" class="btn btn-ghost" id="pay-full">Pay now</button></div>
+<p style="font-size:.88rem;color:var(--muted);margin-top:12px">"Submit" opens a pre-filled email in your mail app addressed to info@metrosportsnh.com — review it, attach any artwork, and press send. Payment buttons open a <b>demo checkout</b>; no payment is taken.</p></fieldset>
+
+<div class="nav-btns"><button type="button" class="btn btn-ghost" id="back">← Back</button><button type="button" class="btn btn-primary" id="next">Next →</button></div>
+</form>
+<aside class="summary" aria-live="polite" aria-label="Order summary and estimate"><h2>Your order</h2><dl id="sum"></dl><div class="price-lines" id="lines"></div>
+<div class="total"><span>Estimate</span><span id="total">$0.00</span></div><p style="margin:8px 0 0"><span class="sample" id="sample-label"></span></p>
+<p style="font-size:.82rem;color:var(--muted);margin:8px 0 0">Estimate only. Metro Sports confirms final pricing.</p>
+<pre id="print-summary"></pre></aside>
+</div></section></main>
+<footer class="site-footer"><div class="wrap">
+<div class="foot-grid">
+<div><a class="brand" href="../index.html" style="color:#fff"><svg viewBox="0 0 64 42" aria-hidden="true" focusable="false"><path d="M8 4.5 31 1.2c3-.4 4.6 1.4 3.8 4.2L29.6 22c-.6 2-2.2 3.2-4.3 3.4L6.2 27.6c-2.8.3-4.4-1.6-3.6-4.3L4.6 7.8C5.2 6 6.3 4.8 8 4.5Z" fill="#14171c"/><path d="M10 8.2 29 5.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><path d="M3 35c9-6 19-7 30-3.5S52 35 61 29" stroke="#0083b8" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M38 20c6-2.5 12-2.4 17 .5" stroke="#d7263d" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><span class="wm"><b style="color:#fff">Metro <span style="color:#3fb8e8">Sports</span></b></span></a>
+<p style="margin-top:14px">Since 1986, specializing in Screen Printing, Embroidery, Heat Applied and Digital Graphics for businesses, leagues, organizations and schools all over Southern New Hampshire.</p>
+<a class="fb" href="https://www.facebook.com/MetroSportsNH" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg> Find us on Facebook</a><br>
+<a class="manch" href="http://www.manchvegasshirts.com/" rel="noopener"><img src="../img/site/manchvegas.webp" alt="Welcome to Fabulous Manchvegas, New Hampshire sign" width="70" height="49" loading="lazy"> ManchVegas Shirts</a></div>
+<div><h3>Visit</h3><ul><li>1000 East Industrial Park Drive</li><li>Manchester, NH 03109</li><li style="color:#9aa3af">On the corner of Candia & East Industrial</li><li><a href="https://www.google.com/maps/search/?api=1&query=Metro%20Sports%2C%201000%20East%20Industrial%20Park%20Drive%2C%20Manchester%2C%20NH%2003109" rel="noopener">Get directions</a></li></ul></div>
+<div><h3>Contact</h3><ul><li>Phone <a href="tel:+16036233644">(603) 623-3644</a></li><li>Fax (603) 623-5707</li><li><a href="mailto:info@metrosportsnh.com">info@metrosportsnh.com</a></li><li><a href="mailto:ryan@metrosportsnh.com">ryan@metrosportsnh.com</a></li></ul></div>
+<div><h3>Explore</h3><ul><li><a href="../screened.html">Screen Printing</a></li><li><a href="../embroidery.html">Embroidery</a></li><li><a href="../heat-applied.html">Heat Applied</a></li><li><a href="../direct-to-garment.html">Direct to Garment</a></li><li><a href="../apparel.html">Apparel</a> · <a href="../accessories.html">Accessories</a> · <a href="../brands.html">Brands</a></li><li><a href="../team-store.html">Team Apparel Store</a></li><li><a href="../order/">Start an order</a></li><li><a href="../contact.html">Contact Us</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© <span id="yr">2026</span> Metro Sports, Manchester, NH. All rights reserved.</span><span>Design preview — not the official website. Official site: <a href="https://www.metrosportsnh.com/home.htm">metrosportsnh.com</a></span></div>
+</div></footer>
+<div class="action-bar" aria-label="Quick actions"><a class="btn btn-ghost" href="tel:+16036233644">Call</a><a class="btn btn-primary" href="../order/">Start an order</a></div>
+<script src="../assets/site.js" defer></script>
+<script src="../assets/chat-kb.js" defer></script>
+<script src="../assets/chat.js" defer></script>
+<script>document.body.classList.add("no-bar")</script><script src="../assets/pricing-config.js"></script><script src="../assets/order.js" defer></script></body></html>

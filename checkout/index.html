@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Checkout (demo) | Metro Sports</title>
+<meta name="description" content="Demo checkout.">
+<meta name="theme-color" content="#14171c">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+.co{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:start}.co>*{min-width:0}.field input{width:100%;min-width:0}
+.panel{border:1px solid var(--line);border-radius:var(--radius);padding:22px;background:#fff}
+.demo-flag{background:#fff4c2;border:1px solid #f0d97a;color:#5a4500;border-radius:12px;padding:12px 14px;font-weight:600;margin-bottom:18px}
+.methods{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0 18px}
+.methods button{border:2px solid var(--line);background:#fff;border-radius:12px;padding:12px 6px;font:700 .9rem var(--font);cursor:pointer;min-height:54px}
+.methods button[aria-pressed=true]{border-color:var(--blue);background:#eef8fc}
+.pm[hidden]{display:none}
+.field{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.field label{font-weight:700;font-size:.9rem}
+.field input{padding:11px 12px;border:1px solid #cfd5de;border-radius:10px;font:inherit;background:#f7f8fa;color:var(--muted)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.wallet{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:10px;padding:14px;font:700 1.05rem var(--font);cursor:pointer;margin-top:10px}
+.apple{background:#000;color:#fff}.gpay{background:#fff;color:#3c4043;border:1px solid #dadce0}.ppal{background:#ffc439;color:#003087}
+.paybtn{width:100%;margin-top:18px;padding:16px;font-size:1.05rem}
+.success{text-align:center;padding:40px 22px}
+.success .check{width:72px;height:72px;border-radius:50%;background:#e3f6ea;color:#18794e;display:grid;place-items:center;font-size:2.2rem;margin:0 auto 14px}
+.osum pre{white-space:pre-wrap;font:13px/1.5 ui-monospace,monospace;background:var(--paper);padding:12px;border-radius:10px;max-height:340px;overflow:auto}
+.amt{display:flex;justify-content:space-between;font-size:1.3rem;font-weight:800;border-top:2px solid var(--ink);padding-top:10px;margin-top:10px}
+@media (max-width:960px){.co{grid-template-columns:1fr}.osum{order:-1}}
+@media (max-width:560px){.methods{grid-template-columns:1fr 1fr}}
+</style></head>
+<body data-root="../">
+<a class="skip" href="#main">Skip to content</a>
+<div class="preview-banner" role="note">Design preview only — not the official Metro Sports website.</div>
+<div class="utility"><div class="wrap"><span class="since">Screen Printing · Embroidery · Heat Applied · Digital Graphics — since 1986</span><span><span class="addr">1000 East Industrial Park Drive, Manchester, NH 03109 · </span><a href="tel:+16036233644">(603) 623-3644</a> · <a href="mailto:info@metrosportsnh.com">info@metrosportsnh.com</a></span></div></div>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../index.html" aria-label="Metro Sports home"><svg viewBox="0 0 64 42" aria-hidden="true" focusable="false"><path d="M8 4.5 31 1.2c3-.4 4.6 1.4 3.8 4.2L29.6 22c-.6 2-2.2 3.2-4.3 3.4L6.2 27.6c-2.8.3-4.4-1.6-3.6-4.3L4.6 7.8C5.2 6 6.3 4.8 8 4.5Z" fill="#14171c"/><path d="M10 8.2 29 5.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><path d="M3 35c9-6 19-7 30-3.5S52 35 61 29" stroke="#0083b8" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M38 20c6-2.5 12-2.4 17 .5" stroke="#d7263d" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><span class="wm"><b>Metro <span>Sports</span></b><small>Screen Printing · Promotions · Team Specialty</small></span></a>
+<nav class="nav" id="site-nav" aria-label="Main"><button class="menu-toggle close" aria-label="Close menu" style="display:none">✕</button><ul><li><a href="../index.html">Home</a></li><li><button class="drop" aria-expanded="false">Our Work</button><ul class="sub"><li><a href="../screened.html">Screen Printing</a></li><li><a href="../embroidery.html">Embroidery</a></li><li><a href="../heat-applied.html">Heat Applied</a></li><li><a href="../direct-to-garment.html">Direct to Garment</a></li></ul></li><li><button class="drop" aria-expanded="false">Products</button><ul class="sub"><li><a href="../apparel.html">Apparel</a></li><li><a href="../accessories.html">Accessories</a></li><li><a href="../brands.html">Brands</a></li></ul></li><li><a href="../team-store.html">Team Store</a></li><li><a href="../order/" aria-current=page>Order</a></li><li><a href="../contact.html">Contact</a></li><li class="mobile-only"><a href="tel:+16036233644">Call (603) 623-3644</a></li></ul></nav>
+<div class="header-cta"><a class="btn btn-ghost btn-sm" href="tel:+16036233644">Call (603) 623-3644</a><a class="btn btn-primary btn-sm" href="../order/">Start an order</a></div>
+<button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav"><span></span></button>
+</div></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><div class="crumbs"><a href="../index.html">Home</a> / Order / Checkout</div><h1>Checkout</h1><p>Secure payment for your Metro Sports order.</p></div></section>
+<section class="block"><div class="wrap">
+<div class="demo-flag" role="note">DEMO CHECKOUT — this preview does not take payments. No card is charged and nothing you enter is sent anywhere.</div>
+<div class="co" id="co">
+<div class="panel" id="pay-panel">
+<h2 style="font-size:1.4rem">Payment method</h2>
+<div class="methods" role="group" aria-label="Payment method">
+<button type="button" data-m="card" aria-pressed="true">Card</button><button type="button" data-m="apple" aria-pressed="false">Apple Pay</button><button type="button" data-m="google" aria-pressed="false">Google Pay</button><button type="button" data-m="paypal" aria-pressed="false">PayPal</button></div>
+<div class="pm" data-pm="card">
+<p style="font-size:.88rem;color:var(--muted);margin:0">Demo fields are pre-filled and locked — please don't enter real card details.</p>
+<div class="field"><label for="cc">Card number</label><input id="cc" value="4242 4242 4242 4242" readonly aria-readonly="true"></div>
+<div class="row2"><div class="field"><label for="exp">Expiry</label><input id="exp" value="12 / 34" readonly></div><div class="field"><label for="cvc">CVC</label><input id="cvc" value="123" readonly></div></div>
+<div class="field"><label for="zip">ZIP</label><input id="zip" value="03109" readonly></div>
+<button type="button" class="btn btn-primary paybtn" data-pay>Pay <span class="amt-inline"></span></button></div>
+<div class="pm" data-pm="apple" hidden><button type="button" class="wallet apple" data-pay aria-label="Pay with Apple Pay (demo)">Apple Pay</button></div>
+<div class="pm" data-pm="google" hidden><button type="button" class="wallet gpay" data-pay aria-label="Pay with Google Pay (demo)"><b style="color:#4285f4">G</b>Apple Pay</button></div>
+<div class="pm" data-pm="paypal" hidden><button type="button" class="wallet ppal" data-pay aria-label="Pay with PayPal (demo)"><i style="font-weight:900">PayPal</i></button></div>
+<p style="font-size:.82rem;color:var(--muted);margin-top:14px">When live, payment is completed on the processor's secure hosted page (Stripe or Square). This site never sees card numbers.</p>
+</div>
+<aside class="panel osum" aria-label="Order summary"><h2 style="font-size:1.3rem">Order <span id="ref"></span></h2><div id="osum-body"></div></aside>
+</div>
+<div class="panel success" id="done" hidden tabindex="-1"><div class="check" aria-hidden="true">✓</div><h2>Demo - no payment taken</h2><p id="done-msg"></p>
+<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a class="btn btn-primary" id="done-mail" href="#">Email the order to the shop</a><a class="btn btn-ghost" href="../index.html">Back to home</a></div></div>
+</div></section></main>
+<footer class="site-footer"><div class="wrap">
+<div class="foot-grid">
+<div><a class="brand" href="../index.html" style="color:#fff"><svg viewBox="0 0 64 42" aria-hidden="true" focusable="false"><path d="M8 4.5 31 1.2c3-.4 4.6 1.4 3.8 4.2L29.6 22c-.6 2-2.2 3.2-4.3 3.4L6.2 27.6c-2.8.3-4.4-1.6-3.6-4.3L4.6 7.8C5.2 6 6.3 4.8 8 4.5Z" fill="#14171c"/><path d="M10 8.2 29 5.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".55"/><path d="M3 35c9-6 19-7 30-3.5S52 35 61 29" stroke="#0083b8" stroke-width="5.5" fill="none" stroke-linecap="round"/><path d="M38 20c6-2.5 12-2.4 17 .5" stroke="#d7263d" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg><span class="wm"><b style="color:#fff">Metro <span style="color:#3fb8e8">Sports</span></b></span></a>
+<p style="margin-top:14px">Since 1986, specializing in Screen Printing, Embroidery, Heat Applied and Digital Graphics for businesses, leagues, organizations and schools all over Southern New Hampshire.</p>
+<a class="fb" href="https://www.facebook.com/MetroSportsNH" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg> Find us on Facebook</a><br>
+<a class="manch" href="http://www.manchvegasshirts.com/" rel="noopener"><img src="../img/site/manchvegas.webp" alt="Welcome to Fabulous Manchvegas, New Hampshire sign" width="70" height="49" loading="lazy"> ManchVegas Shirts</a></div>
+<div><h3>Visit</h3><ul><li>1000 East Industrial Park Drive</li><li>Manchester, NH 03109</li><li style="color:#9aa3af">On the corner of Candia & East Industrial</li><li><a href="https://www.google.com/maps/search/?api=1&query=Metro%20Sports%2C%201000%20East%20Industrial%20Park%20Drive%2C%20Manchester%2C%20NH%2003109" rel="noopener">Get directions</a></li></ul></div>
+<div><h3>Contact</h3><ul><li>Phone <a href="tel:+16036233644">(603) 623-3644</a></li><li>Fax (603) 623-5707</li><li><a href="mailto:info@metrosportsnh.com">info@metrosportsnh.com</a></li><li><a href="mailto:ryan@metrosportsnh.com">ryan@metrosportsnh.com</a></li></ul></div>
+<div><h3>Explore</h3><ul><li><a href="../screened.html">Screen Printing</a></li><li><a href="../embroidery.html">Embroidery</a></li><li><a href="../heat-applied.html">Heat Applied</a></li><li><a href="../direct-to-garment.html">Direct to Garment</a></li><li><a href="../apparel.html">Apparel</a> · <a href="../accessories.html">Accessories</a> · <a href="../brands.html">Brands</a></li><li><a href="../team-store.html">Team Apparel Store</a></li><li><a href="../order/">Start an order</a></li><li><a href="../contact.html">Contact Us</a></li></ul></div>
+</div>
+<div class="foot-bottom"><span>© <span id="yr">2026</span> Metro Sports, Manchester, NH. All rights reserved.</span><span>Design preview — not the official website. Official site: <a href="https://www.metrosportsnh.com/home.htm">metrosportsnh.com</a></span></div>
+</div></footer>
+<div class="action-bar" aria-label="Quick actions"><a class="btn btn-ghost" href="tel:+16036233644">Call</a><a class="btn btn-primary" href="../order/">Start an order</a></div>
+<script src="../assets/site.js" defer></script>
+<script src="../assets/chat-kb.js" defer></script>
+<script src="../assets/chat.js" defer></script>
+<script>document.body.classList.add("no-bar")</script><script src="../assets/pricing-config.js"></script><script src="../assets/payments-config.js"></script><script src="../assets/checkout.js" defer></script></body></html>
